@@ -1,0 +1,51 @@
+# 知识库编译系统 - 核心依赖
+# 这些是系统运行所必需的依赖，移除了桌面环境相关的包
+
+# 核心框架
+langchain==1.0.3
+langchain-openai==1.0.1
+langgraph==1.0.2
+langgraph-checkpoint==3.0.0
+langgraph-prebuilt==1.0.2
+langgraph-sdk==0.2.9
+langsmith==0.4.39
+
+# Web框架
+fastapi>=0.121,<1
+uvicorn>=0.38,<1
+
+# 数据验证
+pydantic>=2.12,<3
+Jinja2>=3.1,<4
+
+# Coze SDK
+coze-coding-utils>=0.2.6,<1
+coze-workload-identity>=0.1.4,<1
+coze-coding-dev-sdk>0.5.0,<1
+cozeloop>=0.1.25,<1
+
+# 数据处理
+pandas>=2.2,<3
+Pillow>=10.3,<11
+
+# 数据库
+alembic>=1.16,<2
+SQLAlchemy>=2.0,<3
+python-dotenv>=1.2,<2
+psycopg2-binary>=2.9,<3
+psycopg[binary]>=3.3,<4
+psycopg-pool>=3.3,<4
+langgraph-checkpoint-postgres>=3.0,<4
+
+# 文档处理
+pypdf>=6.4,<7
+docx2python>=3.5,<4
+openpyxl>=3.1,<4
+python-pptx>=1.0,<2
+
+# 其他工具
+rich>=14,<15
+chardet>=5.2,<6
+requests>=2.32,<3
+aiofiles>=24,<25
+boto3>=1.40,<2
