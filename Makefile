@@ -65,6 +65,10 @@ test-qa: ## 测试问答系统性能
 	@echo "$(YELLOW)测试问答系统性能...$(NC)"
 	python tests/test_qa_performance.py
 
+test-rag: ## 测试 LightRAG 集成
+	@echo "$(YELLOW)测试 LightRAG 集成...$(NC)"
+	python tests/test_lightrag_integration.py
+
 env-check: test-env ## 检查环境变量（别名）
 
 # 清理相关
