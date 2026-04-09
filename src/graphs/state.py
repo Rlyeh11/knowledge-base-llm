@@ -9,9 +9,10 @@ class GlobalState(BaseModel):
     # 工作流模式
     mode: Literal["ingest", "qa", "health_check"] = Field(default="ingest", description="工作流模式")
     health_check_mode: Literal["full", "consistency", "completeness", "orphan"] = Field(default="full", description="健康检查子模式")
-    
+
     # 摄取阶段
-    url: str = Field(default="", description="要摄取的URL")
+    content: str = Field(default="", description="要摄取的内容（markdown/html/纯文本）")
+    content_type: Literal["markdown", "html", "text"] = Field(default="markdown", description="内容类型")
     raw_file_path: str = Field(default="", description="原始文件保存路径")
     
     # 摘要阶段
@@ -44,14 +45,16 @@ class GlobalState(BaseModel):
 class GraphInput(BaseModel):
     """工作流输入"""
     # 摄取模式
-    url: Optional[str] = Field(default=None, description="要摄取的URL")
-    
+    content: Optional[str] = Field(default=None, description="要摄取的内容（markdown/html/纯文本）")
+    content_type: Optional[Literal["markdown", "html", "text"]] = Field(default="markdown", description="内容类型")
+    title: Optional[str] = Field(default=None, description="文档标题（可选）")
+
     # 问答模式
     question: Optional[str] = Field(default=None, description="用户问题")
-    
+
     # 健康检查模式
     mode: Literal["ingest", "qa", "health_check"] = Field(default="ingest", description="工作流模式")
-    
+
     # 健康检查子模式
     health_check_mode: Optional[Literal["full", "consistency", "completeness", "orphan"]] = Field(default="full", description="健康检查子模式")
 
@@ -64,7 +67,9 @@ class GraphOutput(BaseModel):
 # ============== 摄取节点 ==============
 class IngestInput(BaseModel):
     """摄取节点输入"""
-    url: str = Field(..., description="要摄取的URL")
+    content: str = Field(..., description="要摄取的内容（markdown/html/纯文本）")
+    content_type: Literal["markdown", "html", "text"] = Field(default="markdown", description="内容类型")
+    title: Optional[str] = Field(default=None, description="文档标题（可选）")
 
 class IngestOutput(BaseModel):
     """摄取节点输出"""

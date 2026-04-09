@@ -5,7 +5,7 @@
 ### 节点清单
 | 节点名 | 文件位置 | 类型 | 功能描述 | 分支逻辑 | 配置文件 |
 |-------|---------|------|---------|---------|---------|
-| ingest | `nodes/ingest_node.py` | task | 从URL获取内容并保存为Markdown | ingest模式 → summary | - |
+| ingest | `nodes/ingest_node.py` | task | 从用户输入的内容（markdown/html/纯文本）保存到raw目录 | ingest模式 → summary | - |
 | summary | `nodes/summary_node.py` | agent | 生成文档结构化摘要 | → concept_extract | `config/summary_llm_cfg.json` |
 | concept_extract | `nodes/concept_extract_node.py` | agent | 从摘要中抽取概念 | → index_update | `config/concept_extract_llm_cfg.json` |
 | index_update | `nodes/index_update_node.py` | task | 更新索引文件 | → END | - |
@@ -19,21 +19,27 @@
 无子图（所有功能在主图中实现）
 
 ## 技能使用
-- 节点`ingest`使用fetch-url技能：获取URL内容
 - 节点`summary`、`concept_extract`、`qa`、`health_check`使用LLM技能：文本生成和分析
 
 ## 工作流模式
 
 ### 1. 摄取模式 (ingest)
-**功能**: 从URL摄取资料并编译
+**功能**: 摄取用户输入的内容并编译
 **流程**: ingest → summary → concept_extract → index_update
 **输入参数**:
 ```json
 {
-  "url": "https://example.com/article",
+  "content": "# 我的文档标题\n\n这是文档内容...",
+  "content_type": "markdown",
+  "title": "我的文档标题",
   "mode": "ingest"
 }
 ```
+
+**content_type选项**:
+- `markdown`: Markdown格式内容
+- `html`: HTML格式内容
+- `text`: 纯文本内容
 
 ### 2. 问答模式 (qa)
 **功能**: 基于知识库回答问题并沉淀
@@ -82,7 +88,7 @@ assets/knowledge_base/
 ## 核心特性
 
 ### 编译流程
-1. **摄取**: 从URL获取内容，自动提取标题和元数据
+1. **摄取**: 接受用户输入的markdown/html/纯文本内容，自动提取标题和元数据
 2. **摘要**: 生成结构化摘要（核心结论、关键证据、疑点、术语）
 3. **概念抽取**: 识别核心概念，创建或更新概念条目
 4. **索引更新**: 维护All-Sources.md和All-Concepts.md索引
