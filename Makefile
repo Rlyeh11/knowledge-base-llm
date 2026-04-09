@@ -1,6 +1,6 @@
 # Makefile for Knowledge Base System
 
-.PHONY: help install install-core install-uv run run-http run-flow run-node test clean docker-build docker-up docker-down docker-logs docker-stop model-config model-test model-setup
+.PHONY: help install install-core install-uv run run-http run-flow run-node test test-env clean docker-build docker-up docker-down docker-logs docker-stop model-config model-test model-setup env-check
 
 # 默认目标
 .DEFAULT_GOAL := help
@@ -56,6 +56,12 @@ test: ## 运行测试
 test-run: ## 运行测试工作流
 	@echo "$(YELLOW)运行测试工作流...$(NC)"
 	python -m pytest tests/ -v
+
+test-env: ## 检查环境变量配置
+	@echo "$(YELLOW)检查环境变量配置...$(NC)"
+	python tests/test_env.py
+
+env-check: test-env ## 检查环境变量（别名）
 
 # 清理相关
 clean: ## 清理缓存和临时文件

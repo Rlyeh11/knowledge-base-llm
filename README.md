@@ -183,22 +183,66 @@ python client.py health-check --mode consistency
 
 ## 🔧 配置
 
-### 环境变量
+### 快速配置环境变量
+
+**方式 1: 使用配置脚本（推荐）**
 
 ```bash
-# LLM 配置
-export OPENAI_API_KEY="your-api-key"
-export OPENAI_BASE_URL="https://api.example.com/v1"
+# Linux/Mac
+./scripts/setup_env.sh
 
-# 服务配置
-export LOG_LEVEL="INFO"
-export MAX_WORKERS=4
-export PORT=5000
-
-# 存储配置
-export STORAGE_TYPE="local"  # local | s3 | oss
-export STORAGE_PATH="assets/knowledge_base"
+# Windows
+scripts\setup_env.bat
 ```
+
+**方式 2: 手动配置**
+
+```bash
+# 1. 复制环境变量模板
+cp .env.example .env
+
+# 2. 编辑 .env 文件
+nano .env  # 或使用你喜欢的编辑器
+
+# 3. 填写必需的配置值（如 API Key）
+```
+
+**方式 3: 使用配置脚本（模型）**
+
+```bash
+# 配置 DeepSeek 模型
+make model-deepseek
+
+# 配置 Kimi 模型
+make model-kimi
+
+# 配置 OpenAI 模型
+make model-openai model=gpt-4
+
+# 测试配置
+make model-test
+```
+
+### 环境变量说明
+
+项目使用 `.env` 文件管理环境变量，参考 `.env.example` 查看所有可用配置。
+
+**主要环境变量**:
+
+| 变量名 | 说明 | 必填 | 示例 |
+|--------|------|------|------|
+| `MODEL_TYPE` | 模型类型 | 是 | `openai`, `coze` |
+| `MODEL_ID` | 模型 ID | 是 | `deepseek-chat` |
+| `OPENAI_API_KEY` | OpenAI API Key | MODEL_TYPE=openai 时必填 | `sk-xxxx` |
+| `OPENAI_BASE_URL` | API Base URL | 否 | `https://api.deepseek.com/v1` |
+| `LOG_LEVEL` | 日志级别 | 否 | `INFO`, `DEBUG` |
+| `MAX_WORKERS` | 最大工作进程数 | 否 | `4` |
+| `PORT` | 服务端口 | 否 | `5000` |
+| `STORAGE_TYPE` | 存储类型 | 否 | `local`, `s3`, `oss` |
+
+**详细说明**:
+- 完整的环境变量列表: [`.env.example`](./.env.example)
+- 详细配置指南: [docs/MODEL_CONFIG.md](./docs/MODEL_CONFIG.md)
 
 ### 配置文件
 
