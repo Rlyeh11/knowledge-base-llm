@@ -35,12 +35,17 @@ knowledge-base-system/
 ├── docker-compose.yml         # Docker Compose 配置
 ├── install.sh                 # Linux/Mac 安装脚本
 ├── install.bat                # Windows 安装脚本
+├── quickstart.sh              # 快速开始脚本
+├── quickstart.bat             # 快速开始脚本
+├── Makefile                   # 命令快捷方式
 ├── start.sh                   # 启动脚本
 ├── client.py                  # 命令行客户端
 ├── index.html                 # Web 界面
 ├── INSTALL.md                 # 安装指南 ⭐
+├── DEPLOYMENT.md              # 部署指南
 ├── USAGE.md                   # 使用指南
 ├── DOCKER.md                  # Docker 部署指南
+├── CORS_FIX.md                # CORS 修复文档 ⭐
 ├── AGENTS.md                  # 项目结构索引
 └── src/                       # 源代码
     ├── agents/                # Agent 代码
@@ -194,6 +199,63 @@ config/
 - **completeness**：识别缺少定义/例子的概念
 - **orphan**：发现孤立的概念条目
 
+## ❓ 常见问题
+
+### 1. CORS 跨域问题
+
+**问题**: 本地运行时查询知识时出现 `"OPTIONS /run HTTP/1.1" 405 Method Not Allowed`
+
+**原因**: 浏览器的 CORS 预检请求没有被正确处理
+
+**解决方案**:
+- ✅ 已修复：系统已配置 CORS 中间件
+- 重启服务即可生效
+
+**详细信息**: [CORS 修复文档](./CORS_FIX.md)
+
+### 2. 依赖安装失败
+
+**问题**: 安装依赖时报错 `Failed to build pygobject`
+
+**解决方案**:
+- 使用核心依赖安装：`pip install -r requirements_core.txt`
+- 或使用安装脚本：`./install.sh`（Linux/Mac）或 `install.bat`（Windows）
+
+**详细信息**: [安装指南](./INSTALL.md)
+
+### 3. 端口被占用
+
+**问题**: 启动服务时提示端口 5000 已被占用
+
+**解决方案**:
+```bash
+# 使用其他端口
+python src/main.py -m http -p 5001
+
+# 或停止占用端口的服务
+lsof -i :5000
+```
+
+### 4. LLM API 配置
+
+**问题**: 请求超时或返回错误
+
+**解决方案**:
+- 在 `.env` 文件中配置正确的 API Key
+- 检查 API 服务是否可用
+- 查看 `logs/app.log` 了解详细错误信息
+
+### 5. Docker 部署问题
+
+**问题**: Docker 容器无法启动
+
+**解决方案**:
+- 检查 Docker 是否正在运行：`docker ps`
+- 查看容器日志：`docker-compose logs -f knowledge-base`
+- 确保端口 5000 没有被占用
+
+**详细信息**: [Docker 部署指南](./DOCKER.md)
+
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！
@@ -218,5 +280,9 @@ MIT License
 **快速链接：**
 - [安装指南](./INSTALL.md) - 遇到依赖问题请看这里 ⭐
 - [使用指南](./USAGE.md) - 详细使用说明
+- [CORS 快速修复](./CORS_QUICK_FIX.md) - CORS 跨域问题快速解决 ⭐
+- [常见问题 FAQ](./FAQ.md) - 常见问题汇总
+- [CORS 详细文档](./CORS_FIX.md) - CORS 跨域问题详细说明
+- [部署指南](./DEPLOYMENT.md) - 多种部署方式
 - [Docker 部署](./DOCKER.md) - 推荐的部署方式
 - [仓库地址](https://github.com/your-username/knowledge-base-system) - GitHub 仓库

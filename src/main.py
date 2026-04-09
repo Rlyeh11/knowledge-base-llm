@@ -9,6 +9,7 @@ import cozeloop
 import uvicorn
 import time
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, JSONResponse
 from langchain_core.runnables import RunnableConfig
 from langgraph.graph import StateGraph, END
@@ -235,6 +236,15 @@ class GraphService:
 
 service = GraphService()
 app = FastAPI()
+
+# 配置 CORS 中间件 - 允许跨域请求
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 允许所有来源（生产环境应该限制为特定域名）
+    allow_credentials=True,  # 允许携带凭证
+    allow_methods=["*"],  # 允许所有 HTTP 方法（GET, POST, PUT, DELETE, OPTIONS 等）
+    allow_headers=["*"],  # 允许所有请求头
+)
 
 # OpenAI 兼容接口处理器
 openai_handler = OpenAIChatHandler(service)
