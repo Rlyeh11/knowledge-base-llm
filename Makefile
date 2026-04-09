@@ -121,29 +121,29 @@ health: ## 健康检查
 # 模型配置相关
 model-config: ## 配置模型（使用 model=<类型>，如 deepseek）
 	@echo "$(YELLOW)配置模型...$(NC)"
-	@bash configure_model.sh $(model)
+	@bash scripts/configure_model.sh $(model)
 
 model-test: ## 测试模型配置
 	@echo "$(YELLOW)测试模型配置...$(NC)"
-	python test_model_config.py
+	python tools/test_model_config.py
 
 model-setup: ## 快速配置 DeepSeek 模型（推荐）
 	@echo "$(YELLOW)配置 DeepSeek 模型...$(NC)"
-	@bash configure_model.sh deepseek
+	@bash scripts/configure_model.sh deepseek
 	@echo "$(YELLOW)测试配置...$(NC)"
-	python test_model_config.py
+	python tools/test_model_config.py
 
 model-openai: ## 配置 OpenAI 模型（使用 model=<模型ID>）
 	@echo "$(YELLOW)配置 OpenAI 模型...$(NC)"
-	@bash configure_model.sh openai $(model)
+	@bash scripts/configure_model.sh openai $(model)
 
 model-kimi: ## 配置 Kimi 模型
 	@echo "$(YELLOW)配置 Kimi 模型...$(NC)"
-	@bash configure_model.sh kimi
+	@bash scripts/configure_model.sh kimi
 
 model-deepseek: ## 配置 DeepSeek 模型
 	@echo "$(YELLOW)配置 DeepSeek 模型...$(NC)"
-	@bash configure_model.sh deepseek
+	@bash scripts/configure_model.sh deepseek
 
 model-show: ## 显示当前模型配置
 	@echo "$(YELLOW)当前模型配置:$(NC)"

@@ -45,10 +45,10 @@ curl http://localhost:5000/health
 
 ```bash
 # 方式 1：使用快速开始脚本
-./quickstart.sh
+./scripts/quickstart.sh
 
 # 方式 2：使用安装脚本
-./install.sh
+./scripts/install.sh
 
 # 方式 3：手动安装
 pip install -r requirements_core.txt
@@ -59,10 +59,10 @@ python src/main.py -m http -p 5000
 
 ```bash
 # 方式 1：使用快速开始脚本
-quickstart.bat
+scripts\quickstart.bat
 
 # 方式 2：使用安装脚本
-install.bat
+scripts\install.bat
 
 # 方式 3：手动安装
 pip install -r requirements_core.txt
@@ -354,4 +354,4 @@ export MEMORY_LIMIT=1G
 
 **推荐部署方式**: Docker（生产环境）或 本地安装（开发环境）
 
-**快速开始**: 运行 `./quickstart.sh`（Linux/Mac）或 `quickstart.bat`（Windows）
+**快速开始**: 运行 `./scripts/quickstart.sh`（Linux/Mac）或 `scripts\quickstart.bat`（Windows）

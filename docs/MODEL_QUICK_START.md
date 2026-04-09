@@ -12,35 +12,35 @@
 **Linux/Mac:**
 ```bash
 # 使用 DeepSeek 模型（推荐）
-chmod +x configure_model.sh
-./configure_model.sh deepseek
+chmod +x scripts/configure_model.sh
+./scripts/configure_model.sh deepseek
 
 # 或使用其他模型
-./configure_model.sh openai gpt-4
-./configure_model.sh kimi
-./configure_model.sh coze
+./scripts/configure_model.sh openai gpt-4
+./scripts/configure_model.sh kimi
+./scripts/configure_model.sh coze
 ```
 
 **Windows:**
 ```cmd
-configure_model.bat deepseek
+scripts\configure_model.bat deepseek
 
 # 或使用其他模型
-configure_model.bat openai gpt-4
-configure_model.bat kimi
-configure_model.bat coze
+scripts\configure_model.bat openai gpt-4
+scripts\configure_model.bat kimi
+scripts\configure_model.bat coze
 ```
 
 #### 步骤 2: 测试配置
 
 **Linux/Mac:**
 ```bash
-python test_model_config.py
+python tools/test_model_config.py
 ```
 
 **Windows:**
 ```cmd
-test_model_config.bat
+tools\test_model_config.bat
 ```
 
 预期输出：
@@ -233,10 +233,10 @@ git log --all --full-history --source -- "*env*"
 **测试命令**:
 ```bash
 # 测试问答功能
-python client.py qa "测试问题"
+python tools/client.py qa "测试问题"
 
 # 测试摄取功能
-python client.py ingest "# 测试文档\n\n这是测试内容" --title "测试"
+python tools/client.py ingest "# 测试文档\n\n这是测试内容" --title "测试"
 
 # 查看日志
 tail -f logs/app.log
@@ -248,7 +248,7 @@ tail -f logs/app.log
 
 **快速开始**:
 ```bash
-./configure_model.sh deepseek
-python test_model_config.py
+./scripts/configure_model.sh deepseek
+python tools/test_model_config.py
 python src/main.py -m http -p 5000
 ```

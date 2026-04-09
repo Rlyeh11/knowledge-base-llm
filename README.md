@@ -28,40 +28,58 @@ https://github.com/your-username/knowledge-base-system
 **项目结构：**
 ```
 knowledge-base-system/
-├── requirements_core.txt      # 核心依赖（推荐）
-├── requirements.txt           # 完整依赖
-├── pyproject.toml             # 项目配置
-├── Dockerfile                 # Docker 配置
-├── docker-compose.yml         # Docker Compose 配置
-├── install.sh                 # Linux/Mac 安装脚本
-├── install.bat                # Windows 安装脚本
-├── quickstart.sh              # 快速开始脚本
-├── quickstart.bat             # 快速开始脚本
-├── configure_model.sh         # 模型配置脚本 ⭐
-├── configure_model.bat        # 模型配置脚本 (Windows) ⭐
-├── test_cors.py               # CORS 测试脚本
-├── test_cors.bat              # CORS 测试脚本 (Windows)
-├── test_model_config.py       # 模型配置测试脚本 ⭐
-├── test_model_config.bat      # 模型配置测试脚本 (Windows) ⭐
-├── Makefile                   # 命令快捷方式
-├── start.sh                   # 启动脚本
-├── client.py                  # 命令行客户端
-├── index.html                 # Web 界面
-├── INSTALL.md                 # 安装指南 ⭐
-├── DEPLOYMENT.md              # 部署指南
-├── USAGE.md                   # 使用指南
-├── MODEL_CONFIG.md            # 模型配置指南 ⭐
-├── DOCKER.md                  # Docker 部署指南
-├── CORS_FIX.md                # CORS 详细文档
-├── CORS_QUICK_FIX.md          # CORS 快速修复 ⭐
-├── FAQ.md                     # 常见问题汇总
-├── AGENTS.md                  # 项目结构索引
-└── src/                       # 源代码
-    ├── agents/                # Agent 代码
-    ├── graphs/                # 工作流编排
-    ├── tools/                 # 工具定义
-    ├── storage/               # 存储初始化
-    └── main.py                # 主入口
+├── README.md                 # 主文档（从这里开始）
+├── Makefile                  # 命令快捷方式
+├── pyproject.toml            # 项目配置
+├── requirements.txt          # 完整依赖
+├── requirements_core.txt     # 核心依赖（推荐）
+├── Dockerfile                # Docker 配置
+├── docker-compose.yml        # Docker Compose 配置
+├── .gitignore                # Git 忽略文件
+├── .coze                     # Coze 配置
+├── docs/                     # 📁 文档目录
+│   ├── index.md              # 文档索引
+│   ├── INSTALL.md            # 安装指南 ⭐
+│   ├── MODEL_QUICK_START.md  # 模型配置快速开始 ⭐
+│   ├── MODEL_CONFIG.md       # 模型配置详细指南
+│   ├── CORS_QUICK_FIX.md     # CORS 快速修复 ⭐
+│   ├── CORS_FIX.md           # CORS 详细文档
+│   ├── FAQ.md                # 常见问题汇总
+│   ├── DEPLOYMENT.md         # 部署指南
+│   ├── DOCKER.md             # Docker 部署指南
+│   ├── USAGE.md              # 使用指南
+│   ├── README_KNOWLEDGE_BASE.md  # 知识库系统说明
+│   └── CLEANUP_PLAN.md       # 目录整理方案
+├── scripts/                  # 📁 安装和配置脚本
+│   ├── install.sh            # Linux/Mac 安装脚本
+│   ├── install.bat           # Windows 安装脚本
+│   ├── configure_model.sh    # Linux/Mac 模型配置脚本 ⭐
+│   ├── configure_model.bat   # Windows 模型配置脚本 ⭐
+│   ├── quickstart.sh         # Linux/Mac 快速开始脚本
+│   ├── quickstart.bat        # Windows 快速开始脚本
+│   └── start.sh              # 启动脚本
+├── tools/                    # 📁 测试工具
+│   ├── client.py             # 命令行客户端
+│   ├── test_model_config.py  # 模型配置测试脚本 ⭐
+│   ├── test_model_config.bat # Windows 测试脚本
+│   ├── test_cors.py          # CORS 测试脚本
+│   └── test_cors.bat         # Windows 测试脚本
+├── assets/                   # 📁 资源文件
+│   └── knowledge_base/       # 知识库数据
+├── config/                   # 📁 模型配置文件
+│   ├── summary_llm_cfg.json
+│   ├── concept_extract_llm_cfg.json
+│   ├── qa_llm_cfg.json
+│   └── health_check_llm_cfg.json
+├── src/                      # 📁 源代码
+│   ├── agents/               # Agent 代码
+│   ├── graphs/               # 工作流编排
+│   ├── tools/                # 工具定义
+│   ├── storage/              # 存储初始化
+│   └── main.py               # 主入口
+├── scripts/                  # 📁 原有脚本
+├── .venv/                    # 📁 虚拟环境
+└── uv.lock                   # uv 锁文件
 ```
 
 ## 🚀 快速开始
@@ -320,13 +338,12 @@ MIT License
 ---
 
 **快速链接：**
-- [模型配置快速开始](./MODEL_QUICK_START.md) - 模型配置快速解决 ⭐
-- [模型配置指南](./MODEL_CONFIG.md) - 详细模型配置说明
-- [安装指南](./INSTALL.md) - 遇到依赖问题请看这里 ⭐
-- [使用指南](./USAGE.md) - 详细使用说明
-- [CORS 快速修复](./CORS_QUICK_FIX.md) - CORS 跨域问题快速解决 ⭐
-- [常见问题 FAQ](./FAQ.md) - 常见问题汇总
-- [CORS 详细文档](./CORS_FIX.md) - CORS 跨域问题详细说明
-- [部署指南](./DEPLOYMENT.md) - 多种部署方式
-- [Docker 部署](./DOCKER.md) - 推荐的部署方式
+- [📚 文档索引](./docs/index.md) - 所有文档总览 ⭐
+- [模型配置快速开始](./docs/MODEL_QUICK_START.md) - 模型配置快速解决 ⭐
+- [安装指南](./docs/INSTALL.md) - 遇到依赖问题请看这里 ⭐
+- [使用指南](./docs/USAGE.md) - 详细使用说明
+- [CORS 快速修复](./docs/CORS_QUICK_FIX.md) - CORS 跨域问题快速解决 ⭐
+- [常见问题 FAQ](./docs/FAQ.md) - 常见问题汇总
+- [部署指南](./docs/DEPLOYMENT.md) - 多种部署方式
+- [Docker 部署](./docs/DOCKER.md) - 推荐的部署方式
 - [仓库地址](https://github.com/your-username/knowledge-base-system) - GitHub 仓库
