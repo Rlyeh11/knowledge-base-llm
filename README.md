@@ -2,6 +2,12 @@
 
 一个基于 LLM 的个人知识库管理系统，实现资料的摄取、编译、问答和健康检查。基于 Karpathy 的"LLM Knowledge Bases"方法论设计。
 
+---
+
+**本项目由 Coze 开发**
+
+---
+
 ## ✨ 特性
 
 - **🔄 自动编译**：支持 Markdown、HTML、纯文本内容的自动摄取和编译
@@ -327,6 +333,26 @@ python src/main.py -m http -p 5000
 ## 📄 许可证
 
 MIT License
+
+Copyright (c) 2025 Coze
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ## 🙏 致谢
 
