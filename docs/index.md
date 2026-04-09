@@ -25,6 +25,11 @@
 ### 使用指南
 - [USAGE.md](./USAGE.md) - 完整使用指南
 - [AGENTS.md](../AGENTS.md) - 项目结构索引和节点说明
+- [QA_OPTIMIZATION_GUIDE.md](./QA_OPTIMIZATION_GUIDE.md) - 问答系统优化配置 ⭐
+
+### 性能优化
+- [QA_PERFORMANCE_ANALYSIS.md](./QA_PERFORMANCE_ANALYSIS.md) - 问答系统性能分析和优化方案
+- [QA_OPTIMIZATION_GUIDE.md](./QA_OPTIMIZATION_GUIDE.md) - 问答系统优化配置指南 ⭐
 
 ### 故障排查
 - [FAQ.md](./FAQ.md) - 常见问题汇总 ⭐
@@ -74,6 +79,8 @@
 ### 功能问题
 - [如何摄取内容](./USAGE.md#2-摄取内容)
 - [如何问答](./USAGE.md#3-问答)
+- [问答不准确](./QA_OPTIMIZATION_GUIDE.md#故障排查) ⭐
+- [文档太多怎么办](./QA_PERFORMANCE_ANALYSIS.md) ⭐
 - [健康检查](./USAGE.md#4-健康检查)
 
 ## 📊 文档统计

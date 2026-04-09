@@ -1,0 +1,8 @@
+{
+  "max_docs": 10,
+  "max_doc_chars": 5000,
+  "max_context_chars": 20000,
+  "enable_smart_retrieval": false,
+  "retrieval_method": "keyword",
+  "min_similarity_score": 0.1
+}

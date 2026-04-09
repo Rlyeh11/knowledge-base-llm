@@ -373,7 +373,9 @@ SOFTWARE.
 - [安装指南](./docs/INSTALL.md) - 遇到依赖问题请看这里 ⭐
 - [使用指南](./docs/USAGE.md) - 详细使用说明
 - [CORS 快速修复](./docs/CORS_QUICK_FIX.md) - CORS 跨域问题快速解决 ⭐
+- [问答系统优化](./docs/QA_OPTIMIZATION_GUIDE.md) - 问答性能优化配置 ⭐
+- [问答性能分析](./docs/QA_PERFORMANCE_ANALYSIS.md) - 问答系统性能分析
 - [常见问题 FAQ](./docs/FAQ.md) - 常见问题汇总
 - [部署指南](./docs/DEPLOYMENT.md) - 多种部署方式
 - [Docker 部署](./docs/DOCKER.md) - 推荐的部署方式
-- [仓库地址](https://github.com/your-username/knowledge-base-system) - GitHub 仓库
+- [仓库地址](https://github.com/Rlyeh11/knowledge-base-llm) - GitHub 仓库
