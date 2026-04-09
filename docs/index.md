@@ -31,6 +31,10 @@
 - [QA_PERFORMANCE_ANALYSIS.md](./QA_PERFORMANCE_ANALYSIS.md) - 问答系统性能分析和优化方案
 - [QA_OPTIMIZATION_GUIDE.md](./QA_OPTIMIZATION_GUIDE.md) - 问答系统优化配置指南 ⭐
 
+### RAG 增强（推荐）
+- [RAG_PHASE1_LIGHTRAG_DESIGN.md](./RAG_PHASE1_LIGHTRAG_DESIGN.md) - LightRAG 实现方案设计 ⭐
+- [RAG_PHASE1_LIGHTRAG_GUIDE.md](./RAG_PHASE1_LIGHTRAG_GUIDE.md) - LightRAG 使用指南 ⭐
+
 ### 故障排查
 - [FAQ.md](./FAQ.md) - 常见问题汇总 ⭐
 - [CORS_QUICK_FIX.md](./CORS_QUICK_FIX.md) - CORS 跨域问题快速解决 ⭐
@@ -81,6 +85,7 @@
 - [如何问答](./USAGE.md#3-问答)
 - [问答不准确](./QA_OPTIMIZATION_GUIDE.md#故障排查) ⭐
 - [文档太多怎么办](./QA_PERFORMANCE_ANALYSIS.md) ⭐
+- [如何使用 RAG 增强问答](./RAG_PHASE1_LIGHTRAG_GUIDE.md) ⭐
 - [健康检查](./USAGE.md#4-健康检查)
 
 ## 📊 文档统计
