@@ -20,11 +20,6 @@
 
 ## 📦 仓库信息
 
-**仓库 URL：**
-```
-https://github.com/your-username/knowledge-base-system
-```
-
 **项目结构：**
 ```
 knowledge-base-system/
@@ -88,7 +83,7 @@ knowledge-base-system/
 
 ```bash
 # 克隆仓库
-git clone https://github.com/your-username/knowledge-base-system.git
+git clone https://github.com/Rlyeh11/knowledge-base-llm.git
 cd knowledge-base-system
 
 # 使用 Docker Compose 启动
@@ -228,42 +223,7 @@ config/
 
 ## ❓ 常见问题
 
-### 1. CORS 跨域问题
-
-**问题**: 本地运行时查询知识时出现 `"OPTIONS /run HTTP/1.1" 405 Method Not Allowed`
-
-**原因**: 浏览器的 CORS 预检请求没有被正确处理
-
-**解决方案**:
-- ✅ 已修复：系统已配置 CORS 中间件
-- 重启服务即可生效
-
-**详细信息**: [CORS 修复文档](./CORS_FIX.md)
-
-### 2. 依赖安装失败
-
-**问题**: 安装依赖时报错 `Failed to build pygobject`
-
-**解决方案**:
-- 使用核心依赖安装：`pip install -r requirements_core.txt`
-- 或使用安装脚本：`./install.sh`（Linux/Mac）或 `install.bat`（Windows）
-
-**详细信息**: [安装指南](./INSTALL.md)
-
-### 3. 端口被占用
-
-**问题**: 启动服务时提示端口 5000 已被占用
-
-**解决方案**:
-```bash
-# 使用其他端口
-python src/main.py -m http -p 5001
-
-# 或停止占用端口的服务
-lsof -i :5000
-```
-
-### 4. 模型授权失败
+### 1. 模型授权失败
 
 **问题**: 本地运行时出现模型授权失败错误
 
@@ -294,7 +254,7 @@ python src/main.py -m http -p 5000
 
 **详细信息**: [模型配置指南](./MODEL_CONFIG.md) ⭐
 
-### 5. LLM API 配置
+### 2. LLM API 配置
 
 **问题**: 请求超时或返回错误
 
@@ -305,7 +265,7 @@ python src/main.py -m http -p 5000
 
 **详细信息**: [模型配置指南](./MODEL_CONFIG.md)
 
-### 6. Docker 部署问题
+### 3. Docker 部署问题
 
 **问题**: Docker 容器无法启动
 
