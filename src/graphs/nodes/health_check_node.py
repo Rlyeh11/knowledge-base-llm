@@ -22,22 +22,25 @@ def health_check_node(state: HealthCheckInput, config: RunnableConfig, runtime: 
         # 收集概念文件
         concepts_dir = os.path.join(workspace, "assets/knowledge_base/wiki/concepts")
         concepts_data = []
-        
+
         if os.path.exists(concepts_dir):
             for file_path in glob.glob(os.path.join(concepts_dir, "*.md")):
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         content = f.read()
+                        file_name = os.path.basename(file_path)
+                        file_relpath = os.path.relpath(file_path, workspace)
                         concepts_data.append({
-                            "file": os.path.basename(file_path),
+                            "file": file_name,
+                            "path": file_relpath,
                             "content": content
                         })
                 except:
                     pass
-        
+
         # 构建上下文
         context = "\n\n---\n\n".join([
-            f"## {concept['file']}\n{concept['content']}"
+            f"## [{concept['file']}]({concept['path']})\n{concept['content']}"
             for concept in concepts_data
         ])
         

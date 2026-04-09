@@ -34,8 +34,8 @@ def index_update_node(state: IndexUpdateInput, config: RunnableConfig, runtime: 
         # 追加到All-Sources.md
         with open(sources_index_path, 'a', encoding='utf-8') as f:
             f.write(f"\n## {raw_title}\n")
-            f.write(f"- **原始文件**: `../../{os.path.relpath(state.raw_file_path, workspace)}`\n")
-            f.write(f"- **摘要文件**: `../../{os.path.relpath(state.summary_file_path, workspace)}`\n")
+            f.write(f"- **原始文件**: [{os.path.basename(state.raw_file_path)}](../../{os.path.relpath(state.raw_file_path, workspace)})\n")
+            f.write(f"- **摘要文件**: [{os.path.basename(state.summary_file_path)}](../../{os.path.relpath(state.summary_file_path, workspace)})\n")
         
         sources_updated = True
         

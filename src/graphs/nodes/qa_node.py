@@ -104,7 +104,8 @@ def qa_node(state: QAInput, config: RunnableConfig, runtime: Runtime[Context]) -
             f.write("\n\n---\n\n")
             f.write("## 来源文档\n\n")
             for doc in relevant_docs[:5]:
-                f.write(f"- `{doc['file']}`\n")
+                file_title = os.path.basename(doc['file'])
+                f.write(f"- [{file_title}]({doc['file']})\n")
         
         return QAOutput(
             answer=answer,

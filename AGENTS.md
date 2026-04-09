@@ -93,6 +93,13 @@ assets/knowledge_base/
 3. **概念抽取**: 识别核心概念，创建或更新概念条目
 4. **索引更新**: 维护All-Sources.md和All-Concepts.md索引
 
+### 链接格式规范
+所有知识链接统一使用Markdown链接格式：`[title](path)`
+- **索引文件**: 文件名作为title，相对路径作为path
+- **概念文件**: 来源文件使用markdown链接格式
+- **问答文件**: 来源文档使用markdown链接格式
+- **健康检查**: 概念文件名使用markdown链接格式
+
 ### 问答沉淀
 - 每次问答结果自动保存为Markdown文件
 - 保留推理过程和来源引用

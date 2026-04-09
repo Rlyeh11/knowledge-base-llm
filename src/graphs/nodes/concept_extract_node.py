@@ -95,13 +95,17 @@ def concept_extract_node(state: ConceptExtractInput, config: RunnableConfig, run
             
             if os.path.exists(concept_file_path):
                 # 概念已存在，追加新证据
+                summary_basename = os.path.basename(state.summary_file_path)
+                summary_relpath = os.path.relpath(state.summary_file_path, os.path.dirname(concept_file_path))
                 with open(concept_file_path, 'a', encoding='utf-8') as f:
                     f.write(f"\n\n## 新证据来源\n")
-                    f.write(f"- **来源文件**: {os.path.basename(state.summary_file_path)}\n")
+                    f.write(f"- **来源文件**: [{summary_basename}]({summary_relpath})\n")
                     if concept.get("evidence"):
                         f.write(f"- **证据**: {concept.get('evidence')}\n")
             else:
                 # 新概念，创建文件
+                summary_basename = os.path.basename(state.summary_file_path)
+                summary_relpath = os.path.relpath(state.summary_file_path, concepts_dir)
                 with open(concept_file_path, 'w', encoding='utf-8') as f:
                     f.write(f"# {concept_name}\n\n")
                     if concept.get("definition"):
@@ -109,7 +113,7 @@ def concept_extract_node(state: ConceptExtractInput, config: RunnableConfig, run
                     if concept.get("description"):
                         f.write(f"## 描述\n{concept.get('description')}\n\n")
                     f.write(f"## 证据来源\n")
-                    f.write(f"- **来源文件**: {os.path.basename(state.summary_file_path)}\n")
+                    f.write(f"- **来源文件**: [{summary_basename}]({summary_relpath})\n")
                     if concept.get("evidence"):
                         f.write(f"- **证据**: {concept.get('evidence')}\n")
             
@@ -125,10 +129,12 @@ def concept_extract_node(state: ConceptExtractInput, config: RunnableConfig, run
                 concept_file_path = os.path.join(concepts_dir, f"{safe_name}.md")
                 
                 if not os.path.exists(concept_file_path):
+                    summary_basename = os.path.basename(state.summary_file_path)
+                    summary_relpath = os.path.relpath(state.summary_file_path, concepts_dir)
                     with open(concept_file_path, 'w', encoding='utf-8') as f:
                         f.write(f"# {concept_name}\n\n")
                         f.write(f"## 来源\n")
-                        f.write(f"- **来源文件**: {os.path.basename(state.summary_file_path)}\n")
+                        f.write(f"- **来源文件**: [{summary_basename}]({summary_relpath})\n")
                     
                     concept_files.append(concept_file_path)
                     concepts.append({"name": concept_name})
