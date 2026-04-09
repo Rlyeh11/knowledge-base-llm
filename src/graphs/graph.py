@@ -40,23 +40,18 @@ builder.add_node("index_update", index_update_node)
 builder.add_node("qa", qa_node, metadata={"type": "agent", "llm_cfg": "config/qa_llm_cfg.json"})
 builder.add_node("health_check", health_check_node, metadata={"type": "agent", "llm_cfg": "config/health_check_llm_cfg.json"})
 
-# 设置入口点
-builder.set_entry_point("ingest")
-
-# 添加条件分支（从ingest节点路由）
-# 注意：对于ingest模式，ingest节点会成功执行，然后继续summary
-# 对于qa和health_check模式，ingest节点会返回success但不需要继续处理
-builder.add_conditional_edges(
-    source="ingest",
-    path=route_by_mode,
-    path_map={
-        "ingest": "summary",
+# 设置条件入口点
+builder.set_conditional_entry_point(
+    route_by_mode,
+    {
+        "ingest": "ingest",
         "qa": "qa",
         "health_check": "health_check"
     }
 )
 
 # 摄取流程：ingest → summary → concept_extract → index_update
+builder.add_edge("ingest", "summary")
 builder.add_edge("summary", "concept_extract")
 builder.add_edge("concept_extract", "index_update")
 builder.add_edge("index_update", END)
